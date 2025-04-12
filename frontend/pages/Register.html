@@ -5,6 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LearnHub - Register</title>
   <link rel="stylesheet" href="../styles/Login.css" />
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Spriječiti normalno slanje forme
+        const fullname = document.getElementById('fullname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm_password').value;
+
+        // Slanje podataka na backend putem AJAX-a
+        fetch('http://127.0.0.1:5000/register', {
+          method: 'POST',
+          body: new URLSearchParams({
+            'fullname': fullname,
+            'email': email,
+            'password': password,
+            'confirm_password': confirmPassword
+          }),
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = '/static/pages/Login.html'; // Redirect na Login
+          } else {
+            return response.json();
+          }
+        })
+        .then(data => {
+          if (data.error) {
+            alert(data.error); // Prikazivanje popup-a sa greškom
+          }
+        })
+        .catch(error => console.error('Error:', error));
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -18,7 +54,7 @@
       <h2>Create Account</h2>
       <p class="description">Fill in the details to register your account.</p>
 
-      <form method="POST" action="/register">
+      <form>
         <label for="fullname">Full Name</label>
         <div class="input-group">
           <input type="text" name="fullname" required id="fullname" placeholder="Enter your full name" />
@@ -39,7 +75,7 @@
 
         <label for="confirm_password">Confirm Password</label>
         <div class="input-group">
-          <input type="password" name="confirm-password" required id="confirm_password" placeholder="Confirm your password" />
+          <input type="password" name="confirm_password" required id="confirm_password" placeholder="Confirm your password" />
           <span class="input-icon">🔒</span>
         </div>
 
@@ -48,7 +84,7 @@
 
       <div class="bottom-text">
         <p>Already have an account?</p>
-        <a href="/" class="create-account">Sign In</a>
+        <a href="http://127.0.0.1:5500/frontend/pages/Login.html" class="create-account">Sign In</a>
       </div>
     </div>
   </div>
