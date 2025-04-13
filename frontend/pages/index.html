@@ -1,12 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Frontend Page</title>
-    <link rel="stylesheet" href="../styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnHub</title>
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <h1>Hello from the frontend!</h1>
+  <header>
+    <div class="navbar">
+      <div class="logo">LearnHub</div>
+      <nav>
+        <a href="#">Courses</a>
+        <a href="#">Resources</a>
+        <a href="#">Community</a>
+      </nav>
+      <div class="nav-buttons">
+        <button class="outline">Sign Up</button>
+        <button class="filled">Start Learning</button>
+        <img src="https://via.placeholder.com/32" class="avatar" alt="User" />
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="../img/CoursePage.jpg" alt="Hero Image" class="hero-img" />
+      <h1>Expand Your Skills Today</h1>
+      <p>Access expert-led courses in tech, business, and creative fields</p>
+    </section>
+
+    <section class="courses">
+      <h2>Featured Courses</h2>
+      <div class="course-list">
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>Master HTML, CSS, and JavaScript fundamentals with hands-on projects</p>
+          <div class="card-buttons">
+            <button class="filled">Enroll Now</button>
+            <button class="outline">Preview</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Data Science</h3>
+          <p>Learn Python, statistics, and machine learning for data analysis</p>
+          <div class="card-buttons">
+            <button class="filled">Enroll Now</button>
+            <button class="outline">Preview</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>UX Design</h3>
+          <p>Create user-centered designs with industry-standard tools and methods</p>
+          <div class="card-buttons">
+            <button class="filled">Enroll Now</button>
+            <button class="outline">Preview</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Digital Marketing</h3>
+          <p>Develop strategies for SEO, social media, and content marketing</p>
+          <div class="card-buttons">
+            <button class="filled">Enroll Now</button>
+            <button class="outline">Preview</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-us">
+      <h2>Why Choose Us</h2>
+      <div class="benefits">
+        <div class="card"> 
+        <img src="../img/graduation-cap.png" alt="Hero Image" class="icon-img" />
+          <h4>Expert Instructors</h4>
+          <p>Learn from industry professionals with real-world experience.</p>
+        </div>
+        <div class="card"> 
+          <img src="../img/clock.png" alt="Hero Image" class="icon-img" />
+          <h4>Flexible Learning</h4>
+          <p>Study at your own pace with on-demand video lessons.</p>
+        </div>
+        <div class="card"> 
+          <img src="../img/wrench.png" alt="Hero Image" class="icon-img" />
+          <h4>Practical Projects</h4>
+          <p>Build your portfolio with hands-on assignments and case studies.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
