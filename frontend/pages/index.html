@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LearnHub</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../styles/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
@@ -12,14 +13,12 @@
     <div class="navbar">
       <div class="logo">LearnHub</div>
       <nav>
-        <a href="#">Courses</a>
-        <a href="#">Resources</a>
+        <a href="Courses.html">Courses</a>
+        <a href="Resources.html">Resources</a>
         <a href="#">Community</a>
+        <a href="AboutUs.html">About Us</a>
       </nav>
-      <div class="nav-buttons">
-        <button class="outline">Sign Up</button>
-        <button class="filled">Start Learning</button>
-        <img src="https://via.placeholder.com/32" class="avatar" alt="User" />
+      <div class="nav-buttons" id="nav-buttons">
       </div>
     </div>
   </header>
@@ -33,38 +32,7 @@
 
     <section class="courses">
       <h2>Featured Courses</h2>
-      <div class="course-list">
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>Master HTML, CSS, and JavaScript fundamentals with hands-on projects</p>
-          <div class="card-buttons">
-            <button class="filled">Enroll Now</button>
-            <button class="outline">Preview</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Data Science</h3>
-          <p>Learn Python, statistics, and machine learning for data analysis</p>
-          <div class="card-buttons">
-            <button class="filled">Enroll Now</button>
-            <button class="outline">Preview</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3>UX Design</h3>
-          <p>Create user-centered designs with industry-standard tools and methods</p>
-          <div class="card-buttons">
-            <button class="filled">Enroll Now</button>
-            <button class="outline">Preview</button>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Digital Marketing</h3>
-          <p>Develop strategies for SEO, social media, and content marketing</p>
-          <div class="card-buttons">
-            <button class="filled">Enroll Now</button>
-            <button class="outline">Preview</button>
-          </div>
+      <div class="course-list" id="course-list">
         </div>
       </div>
     </section>
@@ -90,5 +58,54 @@
       </div>
     </section>
   </main>
+  <script>
+    // Provjera da li je korisnik logovan
+    fetch('http://127.0.0.1:5000/check-login', {
+      credentials: 'include'
+    })
+    .then(response => response.json())
+    .then(data => {
+      const navButtons = document.getElementById("nav-buttons");
+      if (data.logged_in) {
+        navButtons.innerHTML = `
+          <button class="outline logout-btn" id="logout-btn">Logout</button>
+          <img src="../img/user.png" class="avatar" alt="User" />
+        `;
+        document.getElementById("logout-btn").addEventListener("click", () => {
+          fetch("http://127.0.0.1:5000/logout", {
+            method: "POST",
+            credentials: "include"
+          })
+          .then(res => res.json())
+          .then(() => window.location.reload());
+        });
+      } else {
+        navButtons.innerHTML = `
+          <a href="Login.html"><button class="outline">Sign In</button></a>
+          <a href="Register.html"><button class="filled">Sign Up</button></a>
+        `;
+      }
+    });
+
+    fetch('http://127.0.0.1:5000/featured-courses')
+      .then(res => res.json())
+      .then(courses => {
+        const container = document.getElementById("course-list");
+        container.innerHTML = "";
+        courses.forEach(course => {
+          container.innerHTML += `
+            <div class="card">
+              <h3>${course.title}</h3>
+              <p>${course.description}</p>
+              <div class="card-buttons">
+                <button class="filled">Enroll Now</button>
+                <button class="outline">Preview</button>
+              </div>
+            </div>
+          `;
+        });
+      });
+  </script>
+  
 </body>
 </html>

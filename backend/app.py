@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, url_for, send_from_directory, jsonify
+from flask import Flask, request, redirect, url_for, send_from_directory, jsonify, session
 import json
 import os
 from flask_cors import CORS
@@ -8,8 +8,8 @@ app = Flask(
     static_folder="../frontend",     
     static_url_path="/static"                   
 )
-
-CORS(app)
+app.secret_key='tajni_kljuc'
+CORS(app, supports_credentials=True)
 USERS_FILE = "users.json"
 
 def load_users():
@@ -35,9 +35,18 @@ def login_post():
     user = users.get(email)
 
     if user and user["password"] == password:
+        session["user"]=email
         return jsonify({"success": True}), 200
     else:
         return jsonify({"error": "Incorrect email or password!"}), 400
+
+@app.route("/logout", methods=["POST"])
+def logout():
+    session.pop("user", None)
+    return jsonify({"success": True})
+@app.route("/check-login")
+def check_login():
+    return jsonify({"logged_in": "user" in session})
 
 
 @app.route("/", methods=["GET", "POST"])
@@ -80,6 +89,14 @@ def register_post():
     save_users(users)
 
     return jsonify({"success": True}), 200
+
+@app.route("/featured-courses")
+def featured_courses():
+    with open("courses.json", "r") as f:
+        courses = json.load(f)
+    sorted_courses = sorted(courses, key=lambda x: x["popularity"], reverse=True)
+    return jsonify(sorted_courses[:3])
+
 
 
 if __name__ == "__main__":

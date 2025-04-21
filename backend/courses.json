@@ -1,0 +1,28 @@
+[
+    {
+      "title": "Web Development",
+      "description": "Master HTML, CSS, and JavaScript fundamentals with hands-on projects",
+      "popularity": 95
+    },
+    {
+      "title": "Data Science",
+      "description": "Learn Python, statistics, and machine learning for data analysis",
+      "popularity": 87
+    },
+    {
+      "title": "UX Design",
+      "description": "Create user-centered designs with industry-standard tools and methods",
+      "popularity": 80
+    },
+    {
+      "title": "Digital Marketing",
+      "description": "Develop strategies for SEO, social media, and content marketing",
+      "popularity": 77
+    },
+    {
+      "title": "Cybersecurity",
+      "description": "Understand threats and learn how to defend systems and networks",
+      "popularity": 82
+    }
+  ]
+  
