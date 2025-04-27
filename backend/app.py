@@ -8,9 +8,11 @@ app = Flask(
     static_folder="../frontend",     
     static_url_path="/static"                   
 )
-app.secret_key='tajni_kljuc'
+app.secret_key = 'tajni_kljuc'
 CORS(app, supports_credentials=True)
+
 USERS_FILE = "users.json"
+COURSES_FILE = "course_data.json" 
 
 def load_users():
     if os.path.exists(USERS_FILE):
@@ -21,6 +23,12 @@ def load_users():
 def save_users(users):
     with open(USERS_FILE, "w") as file:
         json.dump(users, file, indent=2)
+
+def load_courses():
+    if os.path.exists(COURSES_FILE):
+        with open(COURSES_FILE, "r") as file:
+            return json.load(file)
+    return []
 
 @app.route("/static/<path:filename>")
 def serve_static(filename):
@@ -35,7 +43,7 @@ def login_post():
     user = users.get(email)
 
     if user and user["password"] == password:
-        session["user"]=email
+        session["user"] = email
         return jsonify({"success": True}), 200
     else:
         return jsonify({"error": "Incorrect email or password!"}), 400
@@ -44,60 +52,27 @@ def login_post():
 def logout():
     session.pop("user", None)
     return jsonify({"success": True})
+
 @app.route("/check-login")
 def check_login():
     return jsonify({"logged_in": "user" in session})
 
+@app.route("/course", methods=["GET"])
+def get_courses():
+    courses = load_courses()
+    return jsonify(courses)
 
-@app.route("/", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        email = request.form.get("email", "").strip()
-        password = request.form.get("password", "").strip()
-
-        users = load_users()
-        user = users.get(email)
-
-        if user and user["password"] == password:
-            return jsonify({"success": True}), 200
-        else:
-            # Vraćanje JSON odgovora umjesto teksta
-            return jsonify({"error": "Incorrect email or password!"}), 400
-
-    return redirect(url_for('serve_static', filename='pages/Login.html'))
-
-@app.route("/register", methods=["POST"])
-def register_post():
-    fullname = request.form.get("fullname", "").strip()
-    email = request.form.get("email", "").strip()
-    password = request.form.get("password", "").strip()
-    confirm_password = request.form.get("confirm_password", "").strip()
-
-    if not (fullname and email and password and password == confirm_password):
-        return jsonify({"error": "All fields are required and passwords must match!"}), 400
-
-    users = load_users()
-
-    if email in users:
-        return jsonify({"error": "User with this email already exists!"}), 400
-
-    users[email] = {
-        "fullname": fullname,
-        "password": password
-    }
-
-    save_users(users)
-
-    return jsonify({"success": True}), 200
-
-@app.route("/featured-courses")
-def featured_courses():
-    with open("courses.json", "r") as f:
-        courses = json.load(f)
-    sorted_courses = sorted(courses, key=lambda x: x["popularity"], reverse=True)
-    return jsonify(sorted_courses[:3])
+@app.route("/course/<path:course_name>", methods=["GET"])
+def get_course_by_name(course_name):
+    print(f"Received request for course: {course_name}")
+    courses = load_courses()
+    course = next((course for course in courses if course["name"].lower() == course_name.lower()), None)
+    
+    if course:
+        return jsonify(course)
+    else:
+        return jsonify({"error": "Course not found!"}), 404
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

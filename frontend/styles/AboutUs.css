@@ -10,7 +10,6 @@
     color: #1a1a1a;
     line-height: 1.6;
   }
-
   header {
     background: linear-gradient(to right, #d7beff, #450e57);
     padding: 1rem 1rem;
@@ -18,11 +17,40 @@
   }
   
   .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-}
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  button {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background 0.3s, color 0.3s;
+  }
 
 .story {
   background: linear-gradient(to right, #f1e4ff, #e6e6fa);

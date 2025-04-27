@@ -13,13 +13,12 @@
     <div class="navbar">
       <div class="logo">LearnHub</div>
       <nav>
-        <a href="Courses.html">Courses</a>
+        <a href="index.html">Home</a>
         <a href="Resources.html">Resources</a>
         <a href="#">Community</a>
         <a href="AboutUs.html">About Us</a>
       </nav>
-      <div class="nav-buttons" id="nav-buttons">
-      </div>
+      <div class="nav-buttons" id="nav-buttons"></div>
     </div>
   </header>
 
@@ -32,16 +31,37 @@
 
     <section class="courses">
       <h2>Featured Courses</h2>
-      <div class="course-list" id="course-list">
-        </div>
-      </div>
+      <div class="course-list" id="course-list"></div>
+      <script>
+        fetch('http://127.0.0.1:5000/course')
+          .then(res => res.json())
+          .then(courses => {
+            const container = document.getElementById("course-list");
+            container.innerHTML = "";
+            courses.forEach(course => {
+              container.innerHTML += `
+                <div class="card2" style="background-image: url('${course.hero_image}');">
+                  <div class="card-content">
+                    <h3>${course.name}</h3>
+                    <p>${course.overview}</p>
+                    <div class="card-buttons">
+                      <button class="filled" onclick="window.location.href='Courses.html?course_name=${encodeURIComponent(course.name)}'">Enroll Now</button>
+<button class="outline" onclick="window.location.href='Courses.html?course_name=${encodeURIComponent(course.name)}'">Preview</button>
+
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+          });
+      </script>
     </section>
 
     <section class="why-us">
       <h2>Why Choose Us</h2>
       <div class="benefits">
         <div class="card"> 
-        <img src="../img/graduation-cap.png" alt="Hero Image" class="icon-img" />
+          <img src="../img/graduation-cap.png" alt="Hero Image" class="icon-img" />
           <h4>Expert Instructors</h4>
           <p>Learn from industry professionals with real-world experience.</p>
         </div>
@@ -58,8 +78,8 @@
       </div>
     </section>
   </main>
+
   <script>
-    // Provjera da li je korisnik logovan
     fetch('http://127.0.0.1:5000/check-login', {
       credentials: 'include'
     })
@@ -86,26 +106,6 @@
         `;
       }
     });
-
-    fetch('http://127.0.0.1:5000/featured-courses')
-      .then(res => res.json())
-      .then(courses => {
-        const container = document.getElementById("course-list");
-        container.innerHTML = "";
-        courses.forEach(course => {
-          container.innerHTML += `
-            <div class="card">
-              <h3>${course.title}</h3>
-              <p>${course.description}</p>
-              <div class="card-buttons">
-                <button class="filled">Enroll Now</button>
-                <button class="outline">Preview</button>
-              </div>
-            </div>
-          `;
-        });
-      });
   </script>
-  
 </body>
 </html>

@@ -1,0 +1,169 @@
+[
+    {
+      "name": "Canva",
+      "hero_image": "../img/course-image.jpg",
+      "hero_title": "Canva for Beginners",
+      "overview": "This beginner-friendly Canva course is designed to equip students with the skills to create eye-catching graphics, presentations, social-media posts, and more - using Canva's intuitive drag-and-drop interface. Through hands-on projects, simple tasks, and layered gamification, learners will stay motivated, unlock achievements, and build a professional portfolio by course end. The course is suitable for absolute beginners and offers valuable lessons to more advanced Canva users in the later modules. By the end of this course, you'll have mastered all the essential Canva skills you need to confidently tackle any project on the platform.",
+      
+      "teacher": {
+        "image" : "../img/teacher.jpg",
+        "name": "Anna Smith",
+        "bio": "Meet Anna Smith, a seasoned graphic designer with over 8 years of professional experience and a passionate art teacher. She's crafted this module as a simple, fast-paced path to mastering Canva - guiding you step by step so you can build your first real design and see your ideas come to life. Anna loves mixing practical tips from her studio work (branding for small businesses, social-media campaigns) with fun classroom exercises - ensuring you not only understand the tools, but actually enjoy the creative process."
+      },
+      
+      "reviews": [
+        {
+          "name" :"Sam Smith",
+          "timeAgo" : "2 months ago",
+          "rating": 5,
+          "comment": "Anna's lessons were super clear and to the point - I had my first Instagram graphic done in under an hour! Loved the hands-on challenges.",
+          "avatar": "../img/sam_smith.jpg"
+        },
+        {
+          "name": "Eva Blue",
+          "timeAgo": "A month ago",
+          "rating": 5,
+          "comment": "Absolutely recommend. The projects feel like real work, not busy-work, and Anna's way of explaining was easy to understand. Fun, fast, and very practical.",
+          "avatar" :"../img/eva_blue.jpg"
+        },
+        {
+          "name" : "Adam Sky",
+          "timeAgo" : "5 days ago",
+          "rating": 4,
+          "comment": "Great intro to Canva, it really helped me get confident fast. I wish there were a bit more variety in the template exercises, but overall awesome class!",
+          "avatar" : "../img/adam_sky.jpg"
+        }
+      ],
+      
+      "modules": [
+        {
+          "title": "Getting Started with Canva",
+          "lessons": [
+            {
+              "lesson_title": "Signing Up & Your First Canvas",
+              "description": "Follow the video below to sign up: click Sign up, enter your email & password, and congrats - you're in! Then create your first project: Create a design → Custom size (600 × 800).",
+              "videos": [
+                "Canva Sign Up",
+                "Canva Custom Size Template",
+                "Canva Create a design"
+              ],
+              "gamification": "Unlock the Welcome Badge for your first design."
+            },
+            {
+              "lesson_title": "Editor Basics",
+              "description": "Watch the walkthrough video, then drag an element from Elements, add a text box, and tweak the sizes and positions.",
+              "videos": [
+                "Canva Elements 101"
+              ],
+              "images": [
+                "image2.png",
+                "image3.png",
+                "image4.png"
+              ],
+              "gamification": "Earn Navigator Points for completing the tour."
+            }
+          ]
+        },
+        {
+          "title": "Basic Design Principles",
+          "lessons": [
+            {
+              "lesson_title": "Color Theory & Palettes",
+              "description": "Pick a palette; design a two-text-style poster.",
+              "sample_task": "Design a poster using a selected color palette and two text styles."
+            },
+            {
+              "lesson_title": "Typography & Hierarchy",
+              "description": "Understand typography hierarchy for better designs."
+            }
+          ]
+        },
+        {
+          "title": "Social Media Graphics",
+          "lessons": [
+            {
+              "lesson_title": "Instagram Post",
+              "description": "Design an Instagram quote card using a template."
+            },
+            {
+              "lesson_title": "Facebook Cover",
+              "description": "Create a Facebook cover using Canva."
+            },
+            {
+              "lesson_title": "Canva Mobile App Tips",
+              "description": "Tips and tricks for designing on the go with the Canva mobile app."
+            }
+          ]
+        },
+        {
+          "title": "Presentations & Reports",
+          "lessons": [
+            {
+              "lesson_title": "Slide Layouts",
+              "description": "Learn to design compelling slide layouts."
+            },
+            {
+              "lesson_title": "Infographics",
+              "description": "Create visually appealing infographics."
+            },
+            {
+              "lesson_title": "Exporting & Sharing",
+              "description": "Learn how to properly export and share your designs."
+            }
+          ]
+        },
+        {
+          "title": "Branding & Templates",
+          "lessons": [
+            {
+              "lesson_title": "Brand Kit Setup",
+              "description": "Set up a brand kit with your colors, logos, and fonts."
+            },
+            {
+              "lesson_title": "Custom Templates",
+              "description": "Create templates that can be reused."
+            },
+            {
+              "lesson_title": "Reusable Components",
+              "description": "Create and manage reusable design elements."
+            }
+          ]
+        },
+        {
+          "title": "Collaboration & Advanced Tools",
+          "lessons": [
+            {
+              "lesson_title": "Team Folders & Sharing",
+              "description": "Organize projects and collaborate with team members."
+            },
+            {
+              "lesson_title": "Animations & GIFs",
+              "description": "Animate your designs and export as GIFs."
+            },
+            {
+              "lesson_title": "Version History",
+              "description": "Track and restore previous versions of your designs."
+            }
+          ]
+        },
+        {
+          "title": "Portfolio Project",
+          "lessons": [
+            {
+              "lesson_title": "Project Planning",
+              "description": "Plan your final project."
+            },
+            {
+              "lesson_title": "Execution",
+              "description": "Execute your design project."
+            },
+            {
+              "lesson_title": "Presentation",
+              "description": "Present your mini-brand package."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  
