@@ -52,7 +52,7 @@ def login_post():
         return jsonify({"success": True}), 200
     else:
         return jsonify({"error": "Incorrect email or password!"}), 400
-    
+
 
 @app.route("/register", methods=["POST"])
 def register_post():
@@ -93,6 +93,15 @@ def get_course_by_name(course_name):
     course = next((course for course in courses if course["name"].lower() == course_name.lower()), None)
 
     if course:
+        has_quiz = False
+        for module in course.get('modules', []):
+            for lesson in module.get('lessons', []):
+                if lesson.get('quiz'):
+                    has_quiz = True
+                    break
+            if has_quiz:
+                break
+        course['has_quiz'] = has_quiz
         return jsonify(course)
     else:
         return jsonify({"error": "Course not found!"}), 404
@@ -145,7 +154,7 @@ def unenroll():
     if course:
         if "enrolled_students" in course and email in course["enrolled_students"]:
             course["enrolled_students"].remove(email)
-            save_courses(courses)
+        save_courses(courses)
         return jsonify({"success": True, "message": "User unenrolled successfully!"}), 200
     else:
         return jsonify({"error": "Course not found!"}), 404
@@ -219,17 +228,38 @@ def get_leaderboard(course_name):
     for email, user_data in users.items():
         if 'quiz_results' in user_data and course_name in user_data['quiz_results']:
             results = user_data['quiz_results'][course_name]
-            # Uzimamo zadnji (najnoviji) rezultat za korisnika na ovom kursu
-            if results:
-                latest_result = max(results, key=lambda x: datetime.fromisoformat(x['timestamp']))
-                leaderboard_data.append({
-                    'fullname': user_data.get('fullname', email), # Koristimo email kao fallback
-                    'score': latest_result['score'],
-                    'total_questions': latest_result['total_questions']
-                })
+            total_score = 0
+            total_correct_answers = 0 
+            total_questions = 0
 
-    # Sortiramo po rezultatu (najbolji prvi)
-    leaderboard_data.sort(key=lambda x: x['score'], reverse=True)
+            for result in results:
+                total_score += result.get('score', 0)
+                total_correct_answers += result.get('score', 0)
+                total_questions += result.get('total_questions', 0)
+
+            if total_questions > 0:
+                leaderboard_data.append({
+                    'username': user_data.get('fullname', email.split('@')[0]), 
+                    'totalScore': total_score,
+                    'correctAnswers': total_correct_answers,
+                    'totalQuestions': total_questions
+                })
+            elif results:
+                leaderboard_data.append({
+                    'username': user_data.get('fullname', email.split('@')[0]),
+                    'totalScore': 0,
+                    'correctAnswers': 0,
+                    'totalQuestions': 0
+                })
+        elif 'enrolled_courses' in user_data and course_name in user_data['enrolled_courses']:
+            leaderboard_data.append({
+                'username': user_data.get('fullname', email.split('@')[0]),
+                'totalScore': 0,
+                'correctAnswers': 0,
+                'totalQuestions': 0
+            })
+
+    leaderboard_data.sort(key=lambda x: x['totalScore'], reverse=True)
     return jsonify(leaderboard_data)
 
 if __name__ == '__main__':

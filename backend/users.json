@@ -2,15 +2,38 @@
   "akrslak17@gmail.com": {
     "fullname": "Anesa Krslak",
     "password": "anesa",
-    "enrolled_courses": [],
+    "enrolled_courses": [
+      "Python"
+    ],
     "quiz_results": {
+      "Python": [
+        {
+          "timestamp": "2025-05-13T11:11:09.483747",
+          "score": 3,
+          "total_questions": 5
+        }
+      ]
     }
   },
   "akrslak1@gmail.com": {
     "fullname": "Hadzera Zukanovic",
     "password": "test",
-    "enrolled_courses": [],
+    "enrolled_courses": [
+      "Python"
+    ],
     "quiz_results": {
+      "Python": [
+        {
+          "timestamp": "2025-05-13T11:54:01.300158",
+          "score": 3,
+          "total_questions": 5
+        },
+        {
+          "timestamp": "2025-05-13T11:56:18.025170",
+          "score": 4,
+          "total_questions": 4
+        }
+      ]
     }
   }
 }

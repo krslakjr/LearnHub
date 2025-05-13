@@ -36,7 +36,6 @@
         <button onclick="showSection('teacher')">Teacher</button>
         <button onclick="showSection('modules')">Modules</button>
         <button onclick="showSection('reviews')">Reviews</button>
-        <button onclick="showSection('leaderboard')">Leaderboard</button>
     </div>
 
     <div class="course-main">
@@ -51,28 +50,43 @@
         let enrolled = localStorage.getItem('enrolled') === 'true';
         let userLoggedIn = false;
 
-        function fetchCourse() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const courseName = urlParams.get('course_name');
+function fetchCourse() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const courseName = urlParams.get('course_name');
 
-            if (!courseName) {
-                console.error('No course name provided');
-                return;
-            }
+    if (!courseName) {
+        console.error('No course name provided');
+        return;
+    }
 
-            fetch(`http://127.0.0.1:5000/course/${courseName}`)
-                .then(response => response.json())
-                .then(course => {
-                    courseData = course;
-                    localStorage.setItem('courseData', JSON.stringify(courseData));
-                    populateHeroSection();
-                    populateSidebar();
-                    showSection('overview');
-                })
-                .catch(error => {
-                    console.error('Error fetching course data:', error);
-                });
-        }
+    fetch(`http://127.0.0.1:5000/course/${courseName}`)
+        .then(response => response.json())
+        .then(course => {
+            courseData = course;
+            localStorage.setItem('courseData', JSON.stringify(courseData));
+            populateHeroSection();
+            populateSidebar();
+            updateCourseTabs(); 
+            showSection('overview'); 
+        })
+        .catch(error => {
+            console.error('Error fetching course data:', error);
+        });
+}
+
+function updateCourseTabs() {
+    const courseTabs = document.querySelector('.course-tabs');
+    const leaderboardButton = courseTabs.querySelector('button[onclick="showSection(\'leaderboard\')"]');
+
+    if (courseData && courseData.has_quiz && !leaderboardButton) {
+        const newLeaderboardButton = document.createElement('button');
+        newLeaderboardButton.textContent = 'Leaderboard';
+        newLeaderboardButton.onclick = () => showSection('leaderboard');
+        courseTabs.appendChild(newLeaderboardButton);
+    } else if (courseData && !courseData.has_quiz && leaderboardButton) {
+        leaderboardButton.remove();
+    }
+}
 
         function populateHeroSection() {
             const heroSection = document.getElementById('course-hero');
@@ -276,154 +290,155 @@
             return totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
         }
 
-        function showSection(section) {
-            console.log('Showing section:', section);
-            const content = document.getElementById('course-content');
-            if (!courseData) return;
+      function showSection(section) {
+    console.log('Showing section:', section);
+    const content = document.getElementById('course-content');
+    if (!courseData) return;
 
-            let contentHTML = '';
+    let contentHTML = '';
 
-            if (section === 'overview') {
-                contentHTML = `
-                    <div class="course-overview" id="course-overview">
-                        <h2 style="font-size: 2.5rem; color: #771296; margin-bottom: 10px;">Course Overview</h2>
-                        <p>${courseData.overview}</p>
-                    </div>
-                `;
-            } else if (section === 'teacher') {
-                contentHTML = `
-                    <div class="teacher-section">
-                        <div class="teacher-image">
-                            <img src="${courseData.teacher.image}" alt="${courseData.teacher.name}">
-                        </div>
-                        <div class="teacher-info">
-                            <h2>Meet the Teacher</h2>
-                            <h3 style="text-align: center;">${courseData.teacher.name}</h3>
-                            <p>${courseData.teacher.bio}</p>
-                        </div>
-                    </div>
-                `;
-            } else if (section === 'modules') {
-                if (!courseData.modules) {
-                    content.innerHTML = '<p>Modules not loaded yet.</p>';
-                    return;
-                }
-                let modulesHTML = `
-                    <div class="modules-section">
-                        <h2 style="font-size: 2.5rem; color: #771296; margin-bottom: 10px;">Course Modules</h2>
-                        <div class="modules-list">
-                `;
+    if (section === 'overview') {
+        contentHTML = `
+            <div class="course-overview" id="course-overview">
+                <h2 style="font-size: 2.5rem; color: #771296; margin-bottom: 10px;">Course Overview</h2>
+                <p>${courseData.overview}</p>
+            </div>
+        `;
+    } else if (section === 'teacher') {
+        contentHTML = `
+            <div class="teacher-section">
+                <div class="teacher-image">
+                    <img src="${courseData.teacher.image}" alt="${courseData.teacher.name}">
+                </div>
+                <div class="teacher-info">
+                    <h2>Meet the Teacher</h2>
+                    <h3 style="text-align: center;">${courseData.teacher.name}</h3>
+                    <p>${courseData.teacher.bio}</p>
+                </div>
+            </div>
+        `;
+    } else if (section === 'modules') {
+        if (!courseData.modules) {
+            content.innerHTML = '<p>Modules not loaded yet.</p>';
+            return;
+        }
+        let modulesHTML = `
+            <div class="modules-section">
+                <h2 style="font-size: 2.5rem; color: #771296; margin-bottom: 10px;">Course Modules</h2>
+                <div class="modules-list">
+        `;
 
-                courseData.modules.forEach((mod, idx) => {
-                    modulesHTML += `
-                        <div class="module-card">
-                            <h3>Module ${idx + 1}: ${mod.title}</h3>
-                            <ul>
-                                ${mod.lessons.map((lesson, lessonIdx) => {
-                                    return `
-                                        <li>
-                                            ${lesson.lesson_title}
-                                            ${enrolled ? `
-                                                <button onclick="startLesson('${encodeURIComponent(courseData.name)}', '${encodeURIComponent(mod.title)}', '${encodeURIComponent(lesson.lesson_title)}')">
-                                                    Start Lesson
-                                                </button>` : ''
-                                            }
-                                        </li>
-                                    `;
-                                }).join('')}
-                                <p><strong>Sample Task:</strong> ${mod.sample_task || 'No sample task available'}</p>
-                            </ul>
-                        </div>
-                    `;
-                });
-
-                modulesHTML += `
-                        </div>
-                    </div>
-                `;
-                contentHTML = modulesHTML;
-            } else if (section === 'reviews') {
-                let reviewsHTML = '<h2>Student Reviews</h2>';
-                const ratingsCount = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0};
-                let totalRatingSum = 0;
-
-                courseData.reviews.forEach(review => {
-                    ratingsCount[review.rating]++;
-                    totalRatingSum += review.rating;
-                });
-
-                const totalReviews = courseData.reviews.length;
-                const averageRating = totalReviews > 0 ? (totalRatingSum / totalReviews).toFixed(1) : 0;
-
-                reviewsHTML += `
-                    <div class="average-rating-box">
-                        <div class="average-rating">${averageRating} <span class="star">★</span></div>
-                        <div class="total-reviews">${totalReviews} reviews</div>
-                    </div>
-                `;
-
-                reviewsHTML += `
-                    <div class="ratings-summary">
-                        ${[5, 4, 3, 2, 1].map(star => {
-                            const percentage = totalReviews > 0 ? (ratingsCount[star] / totalReviews) * 100 : 0;
+        courseData.modules.forEach((mod, idx) => {
+            modulesHTML += `
+                <div class="module-card">
+                    <h3>Module ${idx + 1}: ${mod.title}</h3>
+                    <ul>
+                        ${mod.lessons.map((lesson, lessonIdx) => {
                             return `
-                                <div class="rating-row">
-                                    <span>${star} <span class="star">★</span></span>
-                                    <div class="rating-bar-container">
-                                        <div class="rating-bar" style="width: ${percentage}%;"></div>
-                                    </div>
-                                    <span>${ratingsCount[star]}</span>
-                                </div>
+                                <li>
+                                    ${lesson.lesson_title}
+                                    ${enrolled ? `
+                                        <button onclick="startLesson('${encodeURIComponent(courseData.name)}', '${encodeURIComponent(mod.title)}', '${encodeURIComponent(lesson.lesson_title)}')">
+                                            Start Lesson
+                                        </button>` : ''
+                                    }
+                                </li>
                             `;
                         }).join('')}
-                    </div>
-                `;
+                        <p><strong>Sample Task:</strong> ${mod.sample_task || 'No sample task available'}</p>
+                    </ul>
+                </div>
+            `;
+        });
 
-                courseData.reviews.forEach(review => {
-                    reviewsHTML += `
-                        <div class="course-reviews">
-                            <div class="review">
-                                <img src="${review.avatar}" alt="${review.name}" class="avatar">
-                                <div class="review-content">
-                                    <div class="review-header">
-                                        <div class="reviewer-info">
-                                            <strong>${review.name}</strong>
-                                            <div class="review-stars">
-                                                ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
-                                            </div>
-                                        </div>
-                                        <span class="review-date">${review.timeAgo}</span>
-                                    </div>
-                                    <p>${review.comment}</p>
-                                </div>
+        modulesHTML += `
+                </div>
+            </div>
+        `;
+        contentHTML = modulesHTML;
+    } else if (section === 'reviews') {
+        let reviewsHTML = '<h2>Student Reviews</h2>';
+        const ratingsCount = {5: 0, 4: 0, 3: 0, 2: 0, 1: 0};
+        let totalRatingSum = 0;
+
+        courseData.reviews.forEach(review => {
+            ratingsCount[review.rating]++;
+            totalRatingSum += review.rating;
+        });
+
+        const totalReviews = courseData.reviews.length;
+        const averageRating = totalReviews > 0 ? (totalRatingSum / totalReviews).toFixed(1) : 0;
+
+        reviewsHTML += `
+            <div class="average-rating-box">
+                <div class="average-rating">${averageRating} <span class="star">★</span></div>
+                <div class="total-reviews">${totalReviews} reviews</div>
+            </div>
+        `;
+
+        reviewsHTML += `
+            <div class="ratings-summary">
+                ${[5, 4, 3, 2, 1].map(star => {
+                    const percentage = totalReviews > 0 ? (ratingsCount[star] / totalReviews) * 100 : 0;
+                    return `
+                        <div class="rating-row">
+                            <span>${star} <span class="star">★</span></span>
+                            <div class="rating-bar-container">
+                                <div class="rating-bar" style="width: ${percentage}%;"></div>
                             </div>
+                            <span>${ratingsCount[star]}</span>
                         </div>
                     `;
-                });
+                }).join('')}
+            </div>
+        `;
 
-                contentHTML = reviewsHTML;
-            }
-            else if (section === 'leaderboard') {
-        fetchLeaderboard();
-        return;}
+        courseData.reviews.forEach(review => {
+            reviewsHTML += `
+                <div class="course-reviews">
+                    <div class="review">
+                        <img src="${review.avatar}" alt="${review.name}" class="avatar">
+                        <div class="review-content">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <strong>${review.name}</strong>
+                                    <div class="review-stars">
+                                        ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+                                    </div>
+                                </div>
+                                <span class="review-date">${review.timeAgo}</span>
+                            </div>
+                            <p>${review.comment}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
 
-
-            content.innerHTML = contentHTML;
-
-            const buttons = document.querySelectorAll('.course-tabs button');
-            buttons.forEach(button => button.classList.remove('active'));
-            const activeButton = document.querySelector(`.course-tabs button[onclick="showSection('${section}')"]`);
-            if (activeButton) activeButton.classList.add('active');
+        contentHTML = reviewsHTML;
+    } else if (section === 'leaderboard') {
+        if (courseData.has_quiz) {
+            fetchLeaderboard();
+            return;
+        } else {
+            contentHTML = '<p>Leaderboard is not available for this course as it does not have any quizzes.</p>';
         }
+    }
 
+    content.innerHTML = contentHTML;
+
+    const buttons = document.querySelectorAll('.course-tabs button');
+    buttons.forEach(button => button.classList.remove('active'));
+    const activeButton = document.querySelector(`.course-tabs button[onclick="showSection('${section}')"]`);
+    if (activeButton) activeButton.classList.add('active');
+}
         function startLesson(course, module, lesson) {
             console.log(`Starting lesson: ${lesson}`);
             const url = `Lesson.html?course=${encodeURIComponent(course)}&module=${encodeURIComponent(module)}&lesson=${encodeURIComponent(lesson)}`;
             window.location.href = url;
         }
 
-
-        function generateLeaderboardHTML(leaderboardData) {
+function generateLeaderboardHTML(leaderboardData) {
     if (!leaderboardData || leaderboardData.length === 0) {
         return '<p>No scores recorded for this course yet.</p>';
     }
@@ -432,22 +447,58 @@
         <div class="leaderboard-section">
             <h2 style="font-size: 2.5rem; color: #771296; margin-bottom: 10px;">Leaderboard</h2>
             <table class="leaderboard-table">
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>User</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
                 <tbody>
     `;
 
     leaderboardData.forEach((entry, index) => {
+        const rank = index + 1;
+        let medalHTML = '';
+        if (rank === 1) {
+            medalHTML = '<div class="medal gold"><img src="../img/gold.png" alt="Gold"></div>';
+        } else if (rank === 2) {
+            medalHTML = '<div class="medal silver"><img src="../img/silver.png" alt="Silver"></div>';
+        } else if (rank === 3) {
+            medalHTML = '<div class="medal bronze"><img src="../img/bronze.png" alt="Bronze"></div>';
+        } else {
+            medalHTML = `<div class="rank">${rank}</div>`;
+        }
+
+        const playerName = entry.username || 'Anonymous';
+        const totalScore = entry.totalScore || 0;
+        const correctAnswers = entry.correctAnswers || 0;
+        const totalQuestions = entry.totalQuestions || 0;
+
+        let numStars = 0;
+        if (totalQuestions > 0) {
+            const accuracy = correctAnswers / totalQuestions;
+            if (accuracy >= 0.9) {
+                numStars = 5;
+            } else if (accuracy >= 0.7) {
+                numStars = 4;
+            } else if (accuracy >= 0.5) {
+                numStars = 3;
+            } else if (accuracy >= 0.3) {
+                numStars = 2;
+            } else if (accuracy > 0) {
+                numStars = 1;
+            }
+        }
+
+        let starsHTML = '<div class="stars">';
+        for (let i = 0; i < 5; i++) {
+            starsHTML += `<span style="color: ${i < numStars ? '#ffc82d' : '#4a5568'}">★</span>`;
+        }
+        starsHTML += ` (${correctAnswers}/${totalQuestions})`;
+
         leaderboardHTML += `
                     <tr>
-                        <td>${index + 1}</td>
-                        <td>${entry.fullname || 'Anonymous'}</td>
-                        <td>${entry.score}</td>
+                        <td class="leaderboard-entry">
+                            ${medalHTML}
+                            <div class="avatar">${playerName.charAt(0).toUpperCase()}</div>
+                            <div class="player-name">${playerName}</div>
+                            ${starsHTML}
+                            <div class="score">${totalScore}</div>
+                        </td>
                     </tr>
         `;
     });

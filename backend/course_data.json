@@ -4,7 +4,7 @@
       "hero_image": "../img/course-image.jpg",
       "hero_title": "Canva for Beginners",
       "overview": "This beginner-friendly Canva course is designed to equip students with the skills to create eye-catching graphics, presentations, social-media posts, and more - using Canva's intuitive drag-and-drop interface. Through hands-on projects, simple tasks, and layered gamification, learners will stay motivated, unlock achievements, and build a professional portfolio by course end. The course is suitable for absolute beginners and offers valuable lessons to more advanced Canva users in the later modules. By the end of this course, you'll have mastered all the essential Canva skills you need to confidently tackle any project on the platform.",
-      
+      "has_quiz" :false,
       "teacher": {
         "image" : "../img/teacher.jpg",
         "name": "Anna Smith",
@@ -279,6 +279,7 @@
       "hero_image":"../img/course-image2.png",
       "hero_title":"Python for Beginners",
      "overview": "This beginner-friendly Python Programming course is crafted to take you from your very first lines of code to building small, real-world programs. You'll learn the core concepts—variables, loops, functions, and simple data structures—through hands-on exercises, mini-projects, and built-in gamification that keeps you motivated. Whether you're an absolute newcomer or have dabbled in other languages, you'll finish with a solid portfolio and the confidence to jump into any next-level Python challenge. Master key Python concepts as early as today!",
+     "has_quiz" :true,
      "teacher": {
         "image" : "../img/teacher2.png",
         "name": "Adam White",
