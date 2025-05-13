@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Lesson</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/Lesson.css" />
+    <link rel="stylesheet" href="../styles/Meni.css" />
+    <style>
+        .next-button {
+            background-color: #750f77;
+            color: white;
+            padding: 10px 20px;
+            font-size: 13px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: 350px;
+        }
+
+        .next-button:hover {
+            background-color: #33082c;
+            transform: scale(1.1);
+        }
+
+        .next-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .quiz-container {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+
+        .quiz-question p {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .quiz-options label {
+            display: block;
+            margin-left: 20px;
+            margin-bottom: 5px;
+        }
+
+        .quiz-submit-button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 15px;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .quiz-submit-button:hover {
+            background-color: #4cae4c;
+        }
+
+        .quiz-results {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #d4edda;
+            background-color: #d1e7dd;
+            color: #0f5132;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .lesson-navigation {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        .lesson-navigation button {
+            padding: 8px 15px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        .lesson-navigation button.active {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+
+
+        #lesson-quiz-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="meni-placeholder"></div>
+
+    <div class="container">
+        <main class="main-content">
+            <section class="course">
+                <div id="video-section" class="video-section" style="display: none;">
+                    <div class="video-thumbnail-container">
+                        <img id="video-thumbnail" class="video-thumbnail" src="https://via.placeholder.com/640x360" alt="Video Thumbnail" />
+                        <div id="video-title" class="video-title"></div>
+                    </div>
+                    <div id="video-container">
+                        <ul id="video-list"></ul>
+                    </div>
+                </div>
+
+                <h2 id="course-title" class="course-title"></h2>
+                <p id="instructor" class="instructor"></p>
+
+                <div class="lesson-navigation">
+                    <button onclick="showLessonSection('content')" class="active">Content</button>
+                    <button id="quiz-nav-button" onclick="showLessonSection('quiz')" style="display: none;">Quiz</button>
+                </div>
+
+                <div class="lesson-details">
+                    <div id="lesson-content-section">
+                        <h3 class="section-title">Lesson Description</h3>
+                        <div id="lesson-description"></div>
+
+                        <h3 class="section-title">Lesson Steps</h3>
+                        <div id="lesson-content" class="lesson-content"></div>
+                    </div>
+
+                    <div id="lesson-quiz-section" style="display: none;">
+                        <h3 class="section-title">Quiz</h3>
+                        <div id="quiz-container">
+                            <div id="quiz-questions">
+                                </div>
+                            <button id="submit-quiz-button" class="quiz-submit-button">Submit Quiz</button>
+                            <div id="quiz-results" class="quiz-results" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <button id="complete-button" class="next-button" onclick="markLessonComplete()" disabled>Mark as Completed</button>
+                </div>
+            </section>
+
+            <aside class="course-content">
+                <h3 class="section-title">Course Content</h3>
+                <ul id="course-modules" class="course-modules"></ul>
+            </aside>
+        </main>
+    </div>
+
+    <script>
+        let currentLessonData;
+        let quizActive = true;
+
+        function showLessonSection(sectionId) {
+            document.getElementById('lesson-content-section').style.display = 'none';
+            document.getElementById('lesson-quiz-section').style.display = 'none';
+
+            const activeButtons = document.querySelectorAll('.lesson-navigation button.active');
+            activeButtons.forEach(button => button.classList.remove('active'));
+
+            const currentButton = document.querySelector(`.lesson-navigation button[onclick="showLessonSection('${sectionId}')"]`);
+            if (currentButton) {
+                currentButton.classList.add('active');
+            }
+
+            document.getElementById(`lesson-${sectionId}-section`).style.display = 'block';
+        }
+
+        function markLessonComplete() {
+            if (currentLessonData && currentLessonData.quiz && !quizActive) {
+                alert("Please complete the quiz before marking the lesson as complete.");
+                return;
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseName = decodeURIComponent(urlParams.get('course'));
+            const moduleTitle = decodeURIComponent(urlParams.get('module'));
+            const lessonTitle = decodeURIComponent(urlParams.get('lesson'));
+
+            const progressKey = `${courseName}_progress`;
+            const savedProgress = JSON.parse(localStorage.getItem(progressKey)) || {};
+
+            savedProgress[`${moduleTitle}_${lessonTitle}`] = true;
+            localStorage.setItem(progressKey, JSON.stringify(savedProgress));
+            console.log(`[Lesson.html] Progress updated in localStorage: ${localStorage.getItem(progressKey)}`);
+
+            window.location.href = `Courses.html?course_name=${encodeURIComponent(courseName)}`;
+        }
+
+        function checkQuiz() {
+            if (!currentLessonData || !currentLessonData.quiz || !currentLessonData.quiz.questions) {
+                return;
+            }
+
+            const questions = currentLessonData.quiz.questions;
+            let score = 0;
+            const resultsContainer = document.getElementById('quiz-results');
+
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="question-${index}"]:checked`);
+                if (selectedOption && selectedOption.value === q.correctAnswer) {
+                    score++;
+                }
+            });
+
+            resultsContainer.textContent = `Your score: ${score} out of ${questions.length}`;
+            resultsContainer.style.display = 'block';
+            document.getElementById('complete-button').disabled = false;
+            quizActive = true;
+            showLessonSection('quiz');
+        }
+    </script>
+
+    <script src="main.js"></script>
+    <script src="lesson.js"></script>
+</body>
+</html>

@@ -4,48 +4,6 @@ body {
   background-color: #f8f9fa;
 }
 
-header {
-  background: linear-gradient(to right, #d7beff, #450e57);
-  padding: 1rem 1rem;
-  width: 100%;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: white;
-}
-
-nav a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-}
-
-.nav-buttons {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-button {
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background 0.3s, color 0.3s;
-  color: #d16262;
-}
 
 .hero-content {
   text-align: center;
@@ -92,7 +50,7 @@ h2{
 }
 
 .course-overview p:hover {
-  color: #00bcd4; /* Hover effect for the text */
+  color: #00bcd4; 
   transition: color 0.3s;
 }
 
@@ -353,6 +311,62 @@ h2{
   box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
 }
 
+.leaderboard-section {
+    padding: 20px;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.leaderboard-table th, .leaderboard-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.leaderboard-table th {
+    background-color: #f2f2f2;
+}
+
+.leaderboard-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.leaderboard-rank {
+    width: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.leaderboard-username {
+    flex-grow: 1;
+}
+
+.leaderboard-score {
+    width: 80px;
+    text-align: right;
+}
+
+.collected-badges {
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.collected-badges span {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
 .average-rating {
   font-size: 32px;
   font-weight: bold;
@@ -566,3 +580,21 @@ h2 {
   font-weight: bold;
   color: #555;
 }
+
+.progress-bar-container {
+  margin-top: 20px;
+}
+.progress-bar {
+  width: 100%;
+  background-color: #ddd;
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background-color: #771296;
+  width: 0%;
+  transition: width 0.5s;
+}
+

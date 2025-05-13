@@ -6,21 +6,11 @@
   <title>LearnHub</title>
   <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="../styles/Meni.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <div class="navbar">
-      <div class="logo">LearnHub</div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="Resources.html">Resources</a>
-        <a href="#">Community</a>
-        <a href="AboutUs.html">About Us</a>
-      </nav>
-      <div class="nav-buttons" id="nav-buttons"></div>
-    </div>
-  </header>
+  <div id="meni-placeholder"></div>
 
   <main>
     <section class="hero">
@@ -46,8 +36,7 @@
                     <p>${course.overview}</p>
                     <div class="card-buttons">
                       <button class="filled" onclick="window.location.href='Courses.html?course_name=${encodeURIComponent(course.name)}'">Enroll Now</button>
-<button class="outline" onclick="window.location.href='Courses.html?course_name=${encodeURIComponent(course.name)}'">Preview</button>
-
+                      <button class="outline" onclick="window.location.href='Courses.html?course_name=${encodeURIComponent(course.name)}'">Preview</button>
                     </div>
                   </div>
                 </div>
@@ -79,33 +68,6 @@
     </section>
   </main>
 
-  <script>
-    fetch('http://127.0.0.1:5000/check-login', {
-      credentials: 'include'
-    })
-    .then(response => response.json())
-    .then(data => {
-      const navButtons = document.getElementById("nav-buttons");
-      if (data.logged_in) {
-        navButtons.innerHTML = `
-          <button class="outline logout-btn" id="logout-btn">Logout</button>
-          <img src="../img/user.png" class="avatar" alt="User" />
-        `;
-        document.getElementById("logout-btn").addEventListener("click", () => {
-          fetch("http://127.0.0.1:5000/logout", {
-            method: "POST",
-            credentials: "include"
-          })
-          .then(res => res.json())
-          .then(() => window.location.reload());
-        });
-      } else {
-        navButtons.innerHTML = `
-          <a href="Login.html"><button class="outline">Sign In</button></a>
-          <a href="Register.html"><button class="filled">Sign Up</button></a>
-        `;
-      }
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

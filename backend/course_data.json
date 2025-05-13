@@ -34,136 +34,752 @@
           "avatar" : "../img/adam_sky.jpg"
         }
       ],
+      "features" : [
+        "4 bite-sized modules",
+        "Suitable for absolute beginners",
+        "Self-paced, learn at your own speed",
+        "Certification of completion"
+      ]
+      ,
       
       "modules": [
         {
           "title": "Getting Started with Canva",
           "lessons": [
             {
-              "lesson_title": "Signing Up & Your First Canvas",
-              "description": "Follow the video below to sign up: click Sign up, enter your email & password, and congrats - you're in! Then create your first project: Create a design → Custom size (600 × 800).",
-              "videos": [
-                "Canva Sign Up",
-                "Canva Custom Size Template",
-                "Canva Create a design"
-              ],
-              "gamification": "Unlock the Welcome Badge for your first design."
-            },
+              "lesson_title": "Setting Up Your Canva Account & First Project",
+              "description": "Follow the video below to sign up: click Sign up, enter your email & password, and congrats - you're in! Then create your first project: Create a design → Custom size (600 x 800).",
+              "gamification": "../img/Welcome Badge.png",
+              "content": [
+                {
+                  "step": 1,
+                  "title": "Visit Canva",
+                  "text": "Go to the official Canva website: https://www.canva.com"
+                },
+                {
+                  "step": 2,
+                  "title": "Sign Up / Log In",
+                  "text": "In the top-right corner, click Sign up / Log in",
+                  "image": "../img/Singup-login.png"
+                },
+                {
+                  "step": 3,
+                  "title": "Create Your Account",
+                  "text": "Enter your email, name, and password, then submit. Congratulations—you're in! Now explore your homepage and menu."
+                },
+                {
+                  "step": 4,
+                  "title": "Locate the Left-Hand Menu",
+                  "text": "Sidebar has: Home, Projects, Templates, Brands, Apps, Dream Lab.",
+                  "image":"../img/Canva Mwnu.png"
+                },
+                {
+                  "step": 5,
+                  "title": "Start Your First Design",
+                  "text": "Click Template -> Create a design → Custom size → 600x800 → Create new design.",
+                  "image":"../img/custom size 3.png"
+                },
+                {
+                  "step": 6,
+                  "title": "You're All Set!",
+                  "text": "You've completed the introduction and are ready to design."
+                }
+              ]
+            },            
             {
               "lesson_title": "Editor Basics",
               "description": "Watch the walkthrough video, then drag an element from Elements, add a text box, and tweak the sizes and positions.",
               "videos": [
-                "Canva Elements 101"
+                "../videos/Canva Elements 101.mp4"
               ],
-              "images": [
-                "image2.png",
-                "image3.png",
-                "image4.png"
-              ],
-              "gamification": "Earn Navigator Points for completing the tour."
-            }
-          ]
+              "gamification": "../img/Navigator Badge.png",
+              "content" : [
+                {
+                  "step" : 1,
+                  "title" :"Ready to explore?",
+                  "text" : "It is time to cover features each Canva project has - Canva Elements! These are features you will use for every design, so pay close attention.Watch the walkthrough video, then drag an element from Elements (pick any you like), add a text box, and tweak the sizes and positions."
+                },
+                {
+                  "step" : 2,
+                  "title" : "Experiment with different designs",
+                  "text" : "Feel free to experiment with different colors, font sizes, and placement of elements on the canvas, after all this is your own creation. There is no wrong way of designing. Congratulations—you've nailed the editor basics! Up next, we'll dive into even more powerful features and walk you through crafting your first design."
+                }
+              ]
+             }
+          ],
+          "sample_task" : "Create a 600 x 800 blank canvas, add an element and a text box."
         },
         {
           "title": "Basic Design Principles",
           "lessons": [
             {
-              "lesson_title": "Color Theory & Palettes",
+              "lesson_title": "Color Palettes",
               "description": "Pick a palette; design a two-text-style poster.",
+              "videos" : [
+                "../videos/stil.mp4"
+              ],
+              "gamification": "../img/Color master badge.png",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Time to paint!",
+                  "text": "Head over to the Styles tab and click on any color palette - watch your whole design transform in an instant."
+                },
+                {
+                  "step":2,
+                  "title": "Pro Tip",
+                  "text":"For professional projects, stick with neutral or muted palettes. Go bold: Bright, high-contrast colors work great for ads or younger audiences who need that extra pop. Feel free to swap palettes on the fly until it feels just right!"
+                }
+              ],
               "sample_task": "Design a poster using a selected color palette and two text styles."
             },
             {
-              "lesson_title": "Typography & Hierarchy",
-              "description": "Understand typography hierarchy for better designs."
+              "lesson_title": "Typography",
+              "description": "Understand typography hierarchy for better designs.",
+              "videos" : [
+                "../videos/font.mp4"
+              ],
+              "gamification" : "../img/Typographer badge.png",
+              "content":[
+                {
+                  "step":1,
+                  "title": "Fonts",
+                  "text": "Fonts are your design's voice—let's find the perfect one! By now, you should see a heading on your canvas that's ready for a font makeover. If you'd rather add a brand-new heading or body text, here's how:"
+                },
+                {
+                  "step":2,
+                  "title":"Headings",
+                  "text":"Click Text -> Add a heading (or body text)."
+                },
+                {
+                  "step":3,
+                  "title":"Add a font",
+                  "text":"In the Styles tab (or Text panel), simply click on a font name to apply it instantly. Formal use: clean, easy-to-read sans-serifs or classic serifs. Fun projects: playful scripts or bold display fonts. Play around until your words look as good as they read!"
+                }
+              ]
             }
-          ]
-        },
-        {
-          "title": "Social Media Graphics",
-          "lessons": [
-            {
-              "lesson_title": "Instagram Post",
-              "description": "Design an Instagram quote card using a template."
-            },
-            {
-              "lesson_title": "Facebook Cover",
-              "description": "Create a Facebook cover using Canva."
-            },
-            {
-              "lesson_title": "Canva Mobile App Tips",
-              "description": "Tips and tricks for designing on the go with the Canva mobile app."
-            }
-          ]
+          ],
+          "sample_task" : "Apply a new color palette and font pairing to your poster."
         },
         {
           "title": "Presentations & Reports",
           "lessons": [
             {
+              "lesson_title": "Presentation Creation",
+              "description": "This module is all about putting your new Canva skills into action and discovering powerful presentation features you haven't used yet. You'll learn how to choose and customize a slide deck, fine-tune layouts and design elements, and seamlessly share your work with peers for feedback. Finally, you'll master the export process-downloading your finished presentation as a PDF or PPT so you can confidently deliver it anywhere, anytime. Canva gives you two simple ways to build a presentation:",
+              "videos": [
+                "../videos/template prezentacija.mp4"
+              ],
+              "content":[
+                {
+                  "step":1,
+                  "title": "Start from Scratch",
+                  "text":"You get a blank canvas and add every element yourself—total creative freedom, but more work.",
+                  "image":"../img/presentation canva 4.png"
+                },
+                {
+                  "step":2,
+                  "title": "Use a Ready-Made Template",
+                  "text":"Browse Canva's library of free, professional slide decks and pick one that fits your style. For beginners, we recommend templates: they save time, lower the learning curve, and still teach you key skills. You'll swap in your own text and images, tweak colors and fonts, and rearrange layouts-all without the pressure of building from zero.",
+                  "image":"../img/otvorena prez 5.png"
+                },
+                {
+                  "step":3,
+                  "title":"Customizing an existing template",
+                  "text":"By customizing an existing template, you'll reinforce the basics while discovering new Canva features-so your final deck looks polished, professional, and uniquely yours. Follow the instructions written below or watch the video."
+                }
+              ]
+            },
+            {
               "lesson_title": "Slide Layouts",
-              "description": "Learn to design compelling slide layouts."
-            },
-            {
-              "lesson_title": "Infographics",
-              "description": "Create visually appealing infographics."
-            },
-            {
-              "lesson_title": "Exporting & Sharing",
-              "description": "Learn how to properly export and share your designs."
+              "description": "After following the steps from the previous module your new deck should appear on screen! Click the title box on Slide 1, type your headline, and swap out the subtitle for your name or date. Change up the text to match the topic of your work, change fonts(Refer to Lesson 2.2 for all things text related), or add any element you deem necessary.",
+              "gamification":"../img/Presenter Badge.png",
+              "videos":[
+                "../videos/ubacivanje slika 1.mp4",
+                "../videos/upload File from device.mp4",
+                "../videos/present.mp4",
+                "../videos/transition.mp4"
+              ],
+              "content":[
+                {
+                  "step":1,
+                  "title" : "Add & Arrange Slides",
+                  "text":"Click the + next to the last slide on your slides list to add a new slide, then pick a layout-Title & Content, Two Columns, or Section Header—to suit your needs.",
+                  "image":"../img/add slide 7.png"
+                },
+                {
+                  "step":2,
+                  "title":"Customize Visuals",
+                  "text":"Your template comes pre-loaded with stock photos, but swapping them out is a breeze: 1. Use Canva's Photo Library Click Photos in the left panel, search a keyword, then click any image to insert it. Upload Your Own Images. Head to Uploads -> Upload media, pick a file from your device, then drag it onto your slide. Once your new image is in place, just drag, resize, and reposition it until it looks just right."
+                },
+                {
+                  "step":3,
+                  "title":"Transitions",
+                  "text":"Your slides start out static, but you can bring them to life with simple transitions: Add transitions between slides : Click Add Transition between two slides, then pick a slide transition like “Fade,” “Rise”, or “Pan.” "
+                },
+                {
+                  "step":4,
+                  "title":"Your time",
+                  "text":"Now it's your turn to make the deck truly yours: Edit every slide by adding or tweaking text, swapping in photos or videos, and dropping in extra elements. Adjust colors, fonts, and layouts until it feels just right. When you're happy with the look, hit Play ▶️ one more time to review your flow, practice your delivery, and get presentation-ready!"
+                }
+              ]
             }
-          ]
+          ],
+          "sample_task" : "Build and export a 3-slide mini presentation (PDF or PPT)."
         },
         {
-          "title": "Branding & Templates",
+          "title": "Collaboration & Sharing",
           "lessons": [
             {
-              "lesson_title": "Brand Kit Setup",
-              "description": "Set up a brand kit with your colors, logos, and fonts."
+              "lesson_title": "Collaboration",
+              "description": "Teamwork makes the dream work! This is how you can invite other to help you create the perfect design!",
+              "gamification":"../img/Team Player badge.png",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share Your Presentation",
+                  "text":"Click Share, Choose between View,Comment or Edit, Share the link with others for instant access and feedback",
+                  "image":"../img/share 8.png"
+                }
+              ]
             },
             {
-              "lesson_title": "Custom Templates",
-              "description": "Create templates that can be reused."
-            },
-            {
-              "lesson_title": "Reusable Components",
-              "description": "Create and manage reusable design elements."
+              "lesson_title": "Download Presentation",
+              "description": "Animate your designs and export as GIFs.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share button",
+                  "text":"Click Share."
+                },
+                {
+                  "step":2,
+                  "title":"Download button",
+                  "text":"Click Download"
+                },
+                {
+                  "step":3,
+                  "title":"Format choice",
+                  "text":"Choose your format - PDF Print, PPT Presentation, or PNG images."
+                },
+                {
+                  "step":4,
+                  "title":"Final step",
+                  "text":"Hit Download to save the final version to your computer."
+                }
+              ]
             }
-          ]
-        },
-        {
-          "title": "Collaboration & Advanced Tools",
-          "lessons": [
-            {
-              "lesson_title": "Team Folders & Sharing",
-              "description": "Organize projects and collaborate with team members."
-            },
-            {
-              "lesson_title": "Animations & GIFs",
-              "description": "Animate your designs and export as GIFs."
-            },
-            {
-              "lesson_title": "Version History",
-              "description": "Track and restore previous versions of your designs."
-            }
-          ]
-        },
-        {
-          "title": "Portfolio Project",
-          "lessons": [
-            {
-              "lesson_title": "Project Planning",
-              "description": "Plan your final project."
-            },
-            {
-              "lesson_title": "Execution",
-              "description": "Execute your design project."
-            },
-            {
-              "lesson_title": "Presentation",
-              "description": "Present your mini-brand package."
-            }
-          ]
+          ],
+          "sample_task" : "Invite a teammate for feedback, download as PDF, and share the link."
         }
       ]
+    },
+    {
+      "name":"Python",
+      "hero_image":"../img/course-image2.png",
+      "hero_title":"Python for Beginners",
+     "overview": "This beginner-friendly Python Programming course is crafted to take you from your very first lines of code to building small, real-world programs. You'll learn the core concepts—variables, loops, functions, and simple data structures—through hands-on exercises, mini-projects, and built-in gamification that keeps you motivated. Whether you're an absolute newcomer or have dabbled in other languages, you'll finish with a solid portfolio and the confidence to jump into any next-level Python challenge. Master key Python concepts as early as today!",
+     "teacher": {
+        "image" : "../img/teacher2.png",
+        "name": "Adam White",
+        "bio": "Meet Adam White, a computer scientist and educator with over 8 years of professional experience in software development and data science. Adam has taught Python to hundreds of students, from complete beginners to rising AI engineers. His teaching blends clear explanations of programming principles with practical tips drawn from real projects—so you not only understand how Python works, but also why it matters."    
+      },
+      
+      "reviews": [
+        {
+          "name" :"Ella Shine",
+          "timeAgo" : "3 months ago",
+          "rating": 5,
+          "comment": "Never thought I'd be calling myself a programmer but after this beginners course I feel ready to learn more complex topics as well. Will check out Adam's other courses.", 
+          "avatar": "../img/ella_shine.jpeg"
+        },
+        {
+          "name": "Patrick Sean",
+          "timeAgo": "2 months ago",
+          "rating": 5,
+          "comment": "By Lesson 2 I'd already done the tasks without any help from my engineer brother! I enjoyed the flow of the lessons and appreciate how there was correlation between the tasks, made them easier to understand.",   
+          "avatar" :"../img/patrick_sean.jpg"
+        },
+        {
+          "name" : "Christina Emanuel",
+          "timeAgo" : "A month ago",
+          "rating": 5,
+          "comment": "Every time I would see myself progress on the leaderboard I would keep going with the lessons and exercises in hopes to beat my friends' result haha. Who knew learning Python would be this fun.", 
+          "avatar" : "../img/christina_emanuel.jpg"
+        },
+        {
+          "name" : "Pablo Simon",
+          "timeAgo" : "3 days ago",
+          "rating": 4,
+          "comment": "Really solid intro—I'm pumped to tackle bigger projects next. Would love a bit more examples for each topic covered, that would really bring it home for me.", 
+          "avatar" : "../img/pablo_simon.jpg"
+        }
+      ],
+      "features":[
+        "7 bite-sized modules",
+        "Interactive code challenges",
+        "Quiz after each module and instant feedback",
+        "Certification of completion"
+      ],
+      "modules": [
+        {
+          "title": "Getting Started with Python",
+          "lessons": [
+            {
+              "lesson_title": "Introduction and displaying output",
+              "description": "In this lesson, elementary coding principles will be covered.",
+              "content": [
+                {
+                  "step": 1,
+                  "title": "What Is Python? - Introduction",
+                  "text": "Before we dive into coding and hands-on assignments, let's first clarify what Python is and how it compares to Java and C++. Python is a high-level, interpreted language introduced in 1991. Its syntax emphasizes readability—code often reads like plain English, and Python uses indentation (instead of braces or keywords) to mark blocks, resulting in clean, easy-to-follow programs. As a “high-level” language, Python abstracts away many low-level details (memory management, strict type declarations), letting you focus on solving problems rather than fussing over tiny computer details. Under the hood, Python is multi-paradigm: you can write straightforward procedural scripts, build object-oriented classes, or even adopt a functional style. It's open-source and runs on Windows, macOS, and Linux, so once you master it, you can work almost anywhere. Plus, Python's extensive standard library and vibrant ecosystem of third-party packages mean you rarely have to reinvent the wheel—whether you're building a web app, analyzing large datasets, automating repetitive tasks, or prototyping machine-learning models."
+                },
+                {
+                  "step": 2,
+                  "title": "Why Learn Python?",
+                  "text": "Here's the honest truth: Python makes your life as a coder so much sweeter. 1. Readable Syntax: Spend less time wrestling with punctuation and more time coding logic. 2. Massive Ecosystem: Thousands of packages ready for any task. 3. Transferable Principles: Variables, loops, functions, and conditionals are universal—master them here, and switching to Java, C++, or JavaScript is just a matter of learning new syntax."
+                },
+                {
+                  "step": 3,
+                  "title": "Why do People Use Python For?",
+                  "text": "Python acts much like a “Swiss Army knife” in the programmer's toolkit: its rich standard library and vibrant third-party ecosystem support everything from web development (Django, Flask) to data analysis (pandas, NumPy), automation scripts (batch file renaming, web scraping), and even simple game creation (Pygame)."
+                },
+                {
+                  "step": 4,
+                  "title": "Displaying Output",
+                  "text": "Outputting text (or any result) to the screen is one of the most fundamental actions in programming — it's how your program “talks” to the user. We'll begin by learning how to print messages."
+                },
+                {
+                  "step": 5,
+                  "title": "What is print?",
+                  "text": "print is a built-in Python function that sends whatever you give it to the console (the little window where you see program output). Console from an online editor shown below. Our very first goal is to send a message to the console. We do this with the built-in print function. Here's how it works: 1.Type the word print in your program; 2.Follow it immediately by parentheses (). Now think of a message you want to display and write it inside parentheses, like so: print (Hello World).",
+                  "image":"../img/console 2.png"
+                },
+                {
+                  "step": 6,
+                  "title": "Why parentheses?",
+                  "text": "In Python, you call a function by writing its name followed by parentheses (). Anything inside those parentheses is called an argument — in this case, the text or value you want to display.Now add quotes around your message : print (\"Hello World\")"
+                },
+                {
+                  "step": 6,
+                  "title": "Why quotes?",
+                  "text": "Text (strings) must be wrapped in single '…' or double quotes \"…\" so Python knows it's a piece of text and not a variable name or number. Now click Run, and your console should look like this:",
+                  "image":"../img/console 1.png"
+                }
+              ],
+              "sample_task":"Pick any greeting you like - maybe your name or a fun fact - and display it with print()."
+            }
+          ],
+          "sample_task" : "Write and run print ('Hello, World!'), then ask for and greet the user by name."
+        },
+        {
+          "title": "Variables & Data Types",
+          "lessons": [
+            {
+              "lesson_title": "Basic types: str, int, float, bool",
+              "description": "Last time we learned how to “send” text to the screen with print(\"Hello, World!\"). But what if you want to keep that greeting around, reuse it in different places, or even modify it later? That's where variables come in.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"What Is a Variable?",
+                  "text": "Think of a variable as a named box where you can store a value—a piece of text, a number, or even True/False—so you can grab it whenever you need it."
+                },
+                {
+                  "step":2,
+                  "title": "Creating a Variable",
+                  "text":"You make (or assign) a variable using the equals sign =. The name of the variable goes on the left, the value on the right: message is the variable name (our “box label”); \"Hello, LeanHub!\" is the value we put inside. Now anytime we use message, Python fetches that text for us. (The text after the # symbol is a comment and will not be displayed on the console)",
+                  "image":"../img/nova varijabla 3.png"
+                },
+                {
+                  "step":3,
+                  "title": "Naming Rules for Variables",
+                  "text":"1. Must start with a letter or underscore (_). 2. Can contain letters, digits, and underscores (no spaces). 3. Case-sensitive (count ≠ Count). 4. Pick meaningful names: age, total_price, user_name."
+                },
+                {
+                  "step":4,
+                  "title": "Common Data Types",
+                  "text":"Variables can hold different kinds of data: 1. String (text); 2. user_name = \"Ana\"; 3. Integer (whole number); 4. age = 30; 5. Float (decimal number); 6. coffee_price = 2.50; 7. Boolean (True/False); 8. is_enrolled = True."
+                },
+                {
+                  "step":5,
+                  "title": "Print function & Variables",
+                  "text":"To display what's inside a variable, call print with its name but without quotes so Python fetches its value. Putting quotes around it would make Python print the word itself instead of its stored content.",
+                  "image":"../img/print ime jane 4.png"
+                },
+                {
+                  "step":6,
+                  "title": "Hands-On Challenge 1",
+                  "text":"1. Pick a fun game and store it in a variable favorite_game.\n 2. Store your age in variable my_age and your birth year in a variable birth_year.\n3. Print all three variables in one print() call.",
+                  "image":"../img/hands on challenge prvi 5.png"
+                }
+              ],
+              "quiz":{
+                "questions": [
+                  {"question" : "Which of the following is the correct way to display text in Python?",
+                  "options": ["display(\"Hello\")","print(\"Hello\")","echo(\"Hello\")","write(\"Hello\")"],
+                  "correctAnswer" : "print(\"Hello\")"
+                },
+                 {"question" : "Which of these is not a valid Python variable name?",
+                  "options": ["_count","userName","2ndPlace","total_price"],
+                  "correctAnswer" : "2ndPlace"
+                },
+                {"question" : "How would you assign the number 10 to a variable named count?",
+                  "options": ["count = 10","10 = count","let count = 10","var count := 10"],
+                  "correctAnswer" : "count = 10"
+                },
+                {
+                  "question":"What does this code print? message = \"Hi there!\"  print(message)",
+                  "options":["Hi there!", "\"Hi there!\"", "message","An error"],
+                  "correctAnswer":"Hi there!"
+                },
+                {
+                  "question":"Which statement correctly prints the text Score: followed by the value of a variable score?",
+                  "options":["print(\"Score:\",score)","print(score,\"Score:\")","print(\"Score:\" score)", "print(Score + score)"],
+                  "correctAnswer":"print(\"Score:\",score)"
+                }
+                ]
+              }
+            }
+          ],
+          "sample_task" : "Calculate total cost from price, quantity variables and display it."
+        },
+        {
+          "title": "Decision Making (if/else)",
+          "lessons": [
+            {
+              "lesson_title": "if else",
+              "description": "Today we'll build a simple program that asks the user to solve a math problem.",
+              "content":[
+                {
+                  "step":1,
+                  "title": "Ask the question",
+                  "text":"To prompt the user, we use the built-in input() function—just like print(), but for getting data back from the user. This displays the question and waits for the user to type an answer.",
+                  "image":"../img/math problem 6.png"
+                },
+                {
+                  "step":2,
+                  "title": "Save their answer",
+                  "text":"We want to reuse their answer, so we store it in a variable. Now whatever the user types lives in answer as text (a string).",
+                  "image":"../img/math problem 7.png"
+              },
+                {
+                  "step":3,
+                  "title":"Convert to a number",
+                  "text":"Since input() always returns text, we convert that string into an integer so we can compare it numerically. If the user types 4, answer now holds the number 4.",
+                  "image":"../img/math problem 8.png"
+                },
+                {
+                  "step":4,
+                  "title":"Check the answer",
+                  "text":"We know the correct result is 4, so we use an if/else statement to give feedback: 1. if answer==4 : checks if the user's number matches 2. print(\"Correct!\") runs when they're right. 3. else: catches any other input and tells them the correct result.",
+                  "image":"../img/math problem 9.png"
+                },
+                {
+                  "step":5,
+                  "title":"Full example code",
+                  "image": "../img/math problem 10.png"
+                },
+                {
+                  "step":6,
+                  "title":"Hands-On Challenge 2",
+                  "text": "Write a small program that asks the user to enter an integer and then tells them whether that number is even or odd. 1. Prompt the user: use input() with a clear question; 2. Store their response in a variable; 3. Convert it to an integer so you can do math; 4. Use an if/else to check if the number is divisible by 2; 5. Print “Even number!” if it is, otherwise print “Odd number!”.",
+                  "image":"../img/hands on challenge drugi 11.png"
+                }
+              ]
+            }
+          ],
+          "sample_task" : "Build a program that checks whether a number is even or odd."
+        },
+        {
+          "title": "Repeating with for and while Loops",
+          "lessons": [
+            {
+              "lesson_title": "For loop",
+              "description": "Scenario: You have a list of colors and you want to tell the user “I see the color …” for each one, but you don't want to write the same print() three times.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Without a Loop",
+                  "text":"You'd have to do this:",
+                  "image":"../img/boje 13.png"
+                },
+                {
+                  "step":2,
+                  "title":"With a for Loop",
+                  "text":"You write one block that repeats for every color: 1.for color in colors: “For each item in the list colors, do the following…”; Note: Any character/word can be used instead of “color”; 2. print: “…then run this line, substituting the current color value.”  Result:",
+                  "image":"../img/boje for 14.png"
+                },
+                {
+                  "step":3,
+                  "title":"Why This Matters?",
+                  "text":"Saves typing: One loop handles any number of items. Keeps code tidy: No copy-paste. Stays flexible: Add or remove items from colors and the loop adapts automatically.",
+                  "image":"../img/boje for 15.png"
+                }
+              ]
+            },
+            {
+              "lesson_title": "While loop",
+              "description": "Remember that simple math problem program we wrote in the previous lesson? In it we only gave the user one try to get the answer right. Imagine if we keep asking a math question until the user gets it right—instead of giving them a fixed number of tries or copy-pasting the same code over and over.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Create a Variable",
+                  "text":"First we create a variable that stores the correct answer, and one that stores the user's answer.",
+                  "image":"../img/while 16.png"
+                },
+                {
+                  "step":2,
+                  "title":"Repeating the question",
+                  "text":"We want our program to repeat the question as long as the user's answer isn't the correct number.",
+                  "image":"../img/while 17.png"
+                },
+                {
+                  "step":3,
+                  "title":"Prompting",
+                  "text":"Inside the loop, we prompt the user with input(), take their text reply, turn it into an integer, and store it back in answer.",
+                  "image":"../img/while 18.png"
+                },
+                {
+                  "step":4,
+                  "title":"Check the answer",
+                  "text":"Right after they answer, check if it's not correct. If so, print a message so they know to try again—then the loop repeats.",
+                  "image":"../img/while 19.png"
+                },
+                {
+                  "step":5,
+                  "title":"End of the loop",
+                  "text":"When the user does enter 4, the while loop ends, and a message is displayed signaling a correct answer being entered.",
+                  "image":"../img/while 20.png"
+                },
+                {
+                  "step":6,
+                  "title":"Final code",
+                  "text":"Here's the full code, followed by a short revision:",
+                  "image":"../img/while 21.png"
+                },
+                {
+                  "step":7,
+                  "title":"Summary",
+                  "text":"Since loops are used in all projects understating them is very important, so let's go over it again. The while loop checks its condition before each repetition, so as soon as answer == correct, it stops asking. Inside the loop we combine input(), a variable (answer), and an if/else check—just like in our earlier lessons—but now wrapped in a loop to automate repeated attempts. This pattern keeps your code concise: you write the quiz logic once, and it runs as many times as needed."
+                },
+                {
+                  "step":8,
+                  "title":"Practice Task 1: Greet Each Student",
+                  "text":"Write a program that takes a list of student names (add any names you like) and, using a for loop, prints a personalized greeting for each one in the form: Hello, {name}! Welcome to the class. Possible solution:",
+                  "image":"../img/hands on challenge treci 22.png"
+                },
+                {
+                  "step":9,
+                  "title":"Practice Task 2: Running Total of Positive Numbers",
+                  "text":"Build a program that repeatedly asks the user to enter a positive number. Add each entered number to a running total. If the user enters 0 or a negative number, stop asking and print the total sum.",
+                  "image":"../img/hands on challenge treci 23.png"
+                }
+              ],
+              "quiz":{
+                "questions": [
+                  {"question" : "What does this for loop print? colors = [\"red\", \"green\"] for color in colors: print(\"I see the color\", color)",
+                  "options": ["I see the color red, green","I see the color red I see the color green","[\"red\",\"green\"]","Error"],
+                  "correctAnswer" : "I see the color red I see the color green"
+                },
+                 {"question" : "What happens when you run this code? count = 2 while count > 0: print(count)",
+                  "options": ["Prints 2m then stops","Prints 2,1 then stops","Prints 2 forever (infinite loop)","Error"],
+                  "correctAnswer" : "Prints 2 forever (infinite loop)"
+                },
+                {"question" : "After running this snippet, what value does x hold? x = 0 for i in range(5): x = x + 2",
+                  "options": ["2","5","10","7"],
+                  "correctAnswer" : "10"
+                },
+                {
+                  "question":"What will this print? n = 3 if n > 5: print(\"Big\") else: print(&quot;Small&quot;)",
+                  "options":["Big", "Small", "Nothing","An error"],
+                  "correctAnswer":"Small"
+                }
+                ]
+              }
+            }
+          ],
+          "sample_task" : "Print 'I see the color X' for each color in a list."
+        },
+        {
+          "title": "Error Handling & Debugging",
+          "lessons": [
+            {
+              "lesson_title": "try/except blocks",
+              "description": "Teamwork makes the dream work! This is how you can invite other to help you create the perfect design!",
+              "gamification":"Unlock the Team Player badge.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share Your Presentation",
+                  "text":"Click Share, Choose between View,Comment or Edit, Share the link with others for instant access and feedback"
+                }
+              ]
+            },
+            {
+              "lesson_title": "Debugging with print statements",
+              "description": "Animate your designs and export as GIFs.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share button",
+                  "text":"Click Share."
+                },
+                {
+                  "step":2,
+                  "title":"Download button",
+                  "text":"Click Download"
+                },
+                {
+                  "step":3,
+                  "title":"Format choice",
+                  "text":"Choose your format - PDF Print, PPT Presentation, or PNG images."
+                },
+                {
+                  "step":4,
+                  "title":"Final step",
+                  "text":"Hit Download to save the final version to your computer."
+                }
+              ]
+            }
+          ],
+          "sample_task" : "Safely read a missing file and handle the error gracefully."
+        },
+        {
+          "title": "Functions & Modules",
+          "lessons": [
+            {
+              "lesson_title": "Defining & calling functions",
+              "description": "Teamwork makes the dream work! This is how you can invite other to help you create the perfect design!",
+              "gamification":"Unlock the Team Player badge.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share Your Presentation",
+                  "text":"Click Share, Choose between View,Comment or Edit, Share the link with others for instant access and feedback"
+                }
+              ]
+            },
+            {
+              "lesson_title": "Importing built-in modules (e.g., math)",
+              "description": "Animate your designs and export as GIFs.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share button",
+                  "text":"Click Share."
+                },
+                {
+                  "step":2,
+                  "title":"Download button",
+                  "text":"Click Download"
+                },
+                {
+                  "step":3,
+                  "title":"Format choice",
+                  "text":"Choose your format - PDF Print, PPT Presentation, or PNG images."
+                },
+                {
+                  "step":4,
+                  "title":"Final step",
+                  "text":"Hit Download to save the final version to your computer."
+                }
+              ]
+            }
+          ],
+          "sample_task" : "Write a function to calculate a circle's area and use the math module."
+        },
+        {
+          "title": "File I/O Basics",
+          "lessons": [
+            {
+              "lesson_title": "Reading text files",
+              "description": "Teamwork makes the dream work! This is how you can invite other to help you create the perfect design!",
+              "gamification":"Unlock the Team Player badge.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share Your Presentation",
+                  "text":"Click Share, Choose between View,Comment or Edit, Share the link with others for instant access and feedback"
+                }
+              ]
+            },
+            {
+              "lesson_title": "Writing/appending to files",
+              "description": "Animate your designs and export as GIFs.",
+              "content":[
+                {
+                  "step":1,
+                  "title":"Share button",
+                  "text":"Click Share."
+                },
+                {
+                  "step":2,
+                  "title":"Download button",
+                  "text":"Click Download"
+                },
+                {
+                  "step":3,
+                  "title":"Format choice",
+                  "text":"Choose your format - PDF Print, PPT Presentation, or PNG images."
+                },
+                {
+                  "step":4,
+                  "title":"Final step",
+                  "text":"Hit Download to save the final version to your computer."
+                }
+              ]
+            }
+          ],
+          "sample_task" : "Log user inputs (e.g., quiz answers) to a file named results.txt."
+        }
+      ]
+    },
+    {
+      "name": "JavaScript Jumpstart: Interactive Web Apps",
+      "hero_image": "../img/course-page3.png",
+      "hero_title": "JavaScript Jumpstart",
+      "overview": "This course offers a hands-on introduction to JavaScript through the development of interactive web applications. Participants will learn how to manipulate HTML and CSS with JavaScript, handle user events, and build dynamic user interfaces. Perfect for beginners looking to quickly dive into web development and gain practical skills for creating modern web apps."},
+    {
+      "name": "Project Management Pro",
+      "hero_image": "../img/course-page4.jpg",
+      "hero_title": "Project Management Pro",
+      "overview": "This course provides a comprehensive foundation in project management principles, tools, and best practices. Participants will learn how to plan, execute, and monitor projects effectively, manage teams and resources, and ensure project goals are met on time and within scope. Ideal for aspiring project managers or professionals looking to enhance their leadership and organizational skills."
+    },
+    {
+      "name": "Money Management 101",
+      "hero_image": "../img/course-page5.jpg",
+      "hero_title": "Money Management 101",
+      "overview": "This beginner-friendly course teaches essential personal finance skills, including budgeting, saving, managing expenses, and understanding credit and debt. Participants will gain practical knowledge to make informed financial decisions and build healthy money habits for long-term stability."
+    },
+    {
+      "name": "Creative Writing Workshop: Find Your Voice",
+      "hero_image": "../img/course-page6.jpg",
+      "hero_title": "Creative Writing Workshop",
+      "overview": "This course encourages participants to explore their creativity and develop their unique writing style through guided exercises, peer feedback, and writing prompts. Ideal for aspiring writers, it covers storytelling techniques, character development, and the art of self-expression across various genres."
+    },
+    {
+      "name": "Data Analytics with Excel & SQL",
+      "hero_image": "../img/course-page7.png",
+      "hero_title": "Data Analytics with Excel & SQL",
+      "overview": "This course introduces the fundamentals of data analysis using Excel and SQL. Participants will learn how to organize, clean, and analyze data, create insightful reports and dashboards in Excel, and use SQL to query and manage databases. Perfect for beginners aiming to build a strong foundation in data-driven decision making."
+    },
+    {
+      "name": "AI & Machine Learning Fundamentals",
+      "hero_image": "../img/course-page8.jpg",
+      "hero_title": "AI & Machine Learning Fundamentals",
+      "overview": "This course offers a beginner-friendly introduction to artificial intelligence and machine learning concepts. Participants will explore key algorithms, real-world applications, and basic model training using intuitive tools and platforms. No prior experience required—ideal for anyone curious about the future of technology."
+    },
+    {
+      "name": "UX/UI Design Lab",
+      "hero_image": "../img/course-page9.jpg",
+      "hero_title": "UX/UI Design Lab",
+      "overview": "This hands-on course introduces the principles of user experience (UX) and user interface (UI) design. Participants will learn how to create intuitive, user-centered digital products through wireframing, prototyping, and visual design. Ideal for beginners looking to enter the world of digital design with practical, project-based learning."
+    },
+    {
+      "name": "Fundamentals of Graphic Illustration",
+      "hero_image": "../img/course-page10.jpg",
+      "hero_title": "Fundamentals of Graphic Illustration",
+      "overview": "This course covers the basics of graphic illustration, focusing on visual storytelling, composition, color theory, and digital drawing techniques. Participants will develop their own illustration style while working on creative projects using industry-standard tools. Perfect for beginners and aspiring illustrators."
     }
   ]
   

@@ -1,34 +1,16 @@
 {
   "akrslak17@gmail.com": {
     "fullname": "Anesa Krslak",
-    "password": "anesa"
-  },
-  "akrs17@gmail.com": {
-    "fullname": "Anesa Krslak",
-    "password": "babo"
+    "password": "anesa",
+    "enrolled_courses": [],
+    "quiz_results": {
+    }
   },
   "akrslak1@gmail.com": {
-    "fullname": "Anesa Krslak",
-    "password": "alfa"
-  },
-  "akrslak12@gmail.com": {
-    "fullname": "Anesa Krslak",
-    "password": "alfa"
-  },
-  "akrslak123@gmail.com": {
-    "fullname": "Anesa Krslak",
-    "password": "alfa"
-  },
-  "akrslak178@gmail.com": {
-    "fullname": "Anesa Krslak",
-    "password": "akk"
-  },
-  "akrslak1789@gmail.com": {
-    "fullname": "Anesa Krslak",
-    "password": "aaaa"
-  },
-  "akrslak22@gmail.com": {
-    "fullname": "Anesa Krslak",
-    "password": "aa"
+    "fullname": "Hadzera Zukanovic",
+    "password": "test",
+    "enrolled_courses": [],
+    "quiz_results": {
+    }
   }
 }

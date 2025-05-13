@@ -6,17 +6,10 @@
   <title>About Us - LearnHub</title>
   <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../styles/AboutUs.css"/>
+  <link rel="stylesheet" href="../styles/Meni.css">
 </head>
 <body>
   <div id="meni-placeholder"></div>
-
-<script>
-  fetch('Meni.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('meni-placeholder').innerHTML = data;
-    });
-</script>
 
 
   <main class="about-page">
@@ -189,6 +182,8 @@
     </div>
   </main>
 
+
+  <script src="main.js"></script>
 
   <script>
     const faqItems = document.querySelectorAll(".faq-item");

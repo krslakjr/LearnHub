@@ -24,6 +24,8 @@
 .then(response => response.json())
 .then(data => {
   if (data.success) {
+    localStorage.setItem('loggedIn', 'true'); 
+    localStorage.setItem('userEmail', email);
     window.location.href = 'http://127.0.0.1:5000/static/pages/index.html'; 
   } else if (data.error) {
     alert(data.error);
